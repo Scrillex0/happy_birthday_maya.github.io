@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 340 30% 95%;
+    --foreground: 340 40% 20%;
+    --primary: 340 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 80% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 45 90% 65%;
+    --accent-foreground: 35 60% 20%;
+    --muted: 340 20% 90%;
+    --muted-foreground: 340 10% 50%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 40% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 40% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 340 20% 88%;
+    --input: 340 20% 88%;
+    --ring: 340 70% 55%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --gradient-bg: linear-gradient(160deg, hsl(340 40% 94%), hsl(20 50% 93%), hsl(45 50% 92%));
+    --gradient-cake: linear-gradient(180deg, hsl(340 60% 75%), hsl(340 55% 65%));
+    --gradient-cake-dark: linear-gradient(180deg, hsl(340 50% 60%), hsl(340 45% 50%));
+    --gradient-frosting: linear-gradient(180deg, hsl(0 0% 98%), hsl(340 30% 92%));
+    --color-candle-flame: hsl(35 95% 55%);
+    --color-candle-flame-inner: hsl(45 100% 75%);
+    --color-candle-body: hsl(200 60% 70%);
+    --color-gold: hsl(45 85% 55%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
+  }
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1) scaleX(1) translateY(0); opacity: 1; }
+  25% { transform: scaleY(1.1) scaleX(0.9) translateY(-1px); opacity: 0.9; }
+  50% { transform: scaleY(0.95) scaleX(1.05) translateY(1px); opacity: 1; }
+  75% { transform: scaleY(1.05) scaleX(0.95) translateY(-0.5px); opacity: 0.85; }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: blur(8px) brightness(1); }
+  50% { filter: blur(12px) brightness(1.3); }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0) translateY(60px); opacity: 0; }
+  50% { transform: scale(1.1) translateY(-10px); opacity: 1; }
+  70% { transform: scale(0.95) translateY(5px); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes text-appear {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+.font-display {
+  font-family: 'Pacifico', cursive;
+}
+
+.animate-flicker {
+  animation: flicker 0.8s ease-in-out infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-text-appear {
+  animation: text-appear 0.8s ease-out forwards;
+}
